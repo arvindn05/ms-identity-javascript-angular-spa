@@ -24,9 +24,9 @@ export function loggerCallback(logLevel: LogLevel, message: string) {
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
-      clientId: 'Enter_the_Application_Id_Here',
-      authority: 'Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here',
-      redirectUri: 'Enter_the_Redirect_Uri_Here'
+      clientId: '3f40c683-6543-45fa-bef0-dce527da456c',
+      authority: 'https://login.microsoftonline.com/common/',
+      redirectUri: 'http://localhost:4200'
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,
@@ -44,7 +44,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
-  protectedResourceMap.set('Enter_the_Graph_Endpoint_Herev1.0/me', ['user.read']);
+  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']);
 
   return {
     interactionType: InteractionType.Redirect,
